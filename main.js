@@ -16,21 +16,31 @@
 
 
 /* ogetto dei giocatori */
-const player = {
+const player = [
 
-    codePlayer: letterCodePlayer(),
-    firstName: 'LeBron',
-    lastName: 'James',
-    age: 39,
-    averagePoints: randomNumber(0, 50),
-    percentageShots: randomNumber(0, 100),
-}
+    {
+        codePlayer: letterCodePlayer(),
+        firstName: 'LeBron',
+        lastName: 'James',
+        age: 39,
+        averagePoints: randomNumber(0, 50),
+        percentageShots: randomNumber(0, 100),
+    },
+
+
+]
 
 
 /* Stampare Nome, cognome, età e codice giocatore */
 const {firstName, lastName, age, codePlayer} = player;
 
 console.log(firstName, lastName, age, codePlayer);
+
+
+/* generazione 10 giocatori */
+generatePlayerTeam(player);
+
+console.table(player);
 
 
 
@@ -57,4 +67,41 @@ function letterCodePlayer() {
     const codeRandom = letterCode + numberCode;
 
     return codeRandom;
+}
+
+function generatePlayerTeam(player) {
+    for (let i = 0; i < 9; i++) {
+
+        const namePlayerTeam = ['John J.',
+                                'Patrick',
+                                'James',
+                                'Dwight',
+                                'Ruben',
+                                'Max',
+                                'Lucas',
+                                'Luiz',
+                                'Rafael',];
+                                
+        const surnamePlayerTeam = ['Rodriguez',
+                                    'Hildebrandt',
+                                    'Cote',
+                                    'Ruben',
+                                    'Coldham',
+                                    'Buntine',
+                                    'Costa',
+                                    'Sousa',
+                                    'Goncalves',
+                                    'Lund',];
+
+        const generatePlayer = {
+            codePlayer: letterCodePlayer(),
+            firstName: namePlayerTeam[i],
+            lastName: surnamePlayerTeam[i],
+            age: randomNumber(20, 40),
+            averagePoints: randomNumber(0, 50),
+            percentageShots: randomNumber(0, 100),
+        }
+    
+        player.push(generatePlayer);
+    }
 }

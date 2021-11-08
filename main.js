@@ -27,7 +27,6 @@ const player = [
         percentageShots: randomNumber(0, 100),
     },
 
-
 ]
 
 
@@ -40,7 +39,14 @@ console.log(firstName, lastName, age, codePlayer);
 /* generazione 10 giocatori */
 generatePlayerTeam(player);
 
+
+
+const bestPlayer = player.filter((player) => player.averagePoints > 35 && player.percentageShots > 80);
+
+console.log('-------Giocatori------');
 console.table(player);
+console.log('------Migliori giocatori------');
+console.table(bestPlayer);
 
 
 
